@@ -1,0 +1,25 @@
+<div class="accordion-item">
+  <h3 class="accordion-header">
+    <button
+      class="accordion-button collapsed"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsea{{forloop.counter}}"
+      aria-expanded="false"
+      aria-controls="collapsea{{forloop.counter}}"
+    >
+      {{ day }}
+    </button>
+  </h3>
+  <div
+    id="collapsea{{forloop.counter}}"
+    class="accordion-collapse collapse"
+    data-bs-parent="#accordionExample"
+  >
+    <div>
+      {% for time, time_details in details.items %}
+        {% include "schedule/time.html" with time=time time_details=time_details %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

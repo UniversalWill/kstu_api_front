@@ -1,0 +1,30 @@
+<div class="accordion-item">
+  <h3 class="accordion-header">
+    <button
+      class="accordion-button collapsed"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsea{{forloop.counter}}"
+      aria-expanded="false"
+      aria-controls="collapsea{{forloop.counter}}"
+    >
+      {{ activity }}
+    </button>
+  </h3>
+  <div
+    id="collapsea{{forloop.counter}}"
+    class="accordion-collapse collapse"
+    data-bs-parent="#accordionExample"
+  >
+    <div class="container">
+      {% for assessment, dates in sub_details.items %}
+      <p>{{ assessment }}</p>
+      <ul>
+        {% for date, status in dates.items %}
+        <li>{{ date }}: {{ status }}</li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </div>
+  </div>
+</div>

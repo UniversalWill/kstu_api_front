@@ -1,0 +1,28 @@
+<div class="accordion-item">
+  <h3 class="accordion-header">
+    <button
+      class="accordion-button collapsed"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse{{forloop.counter}}"
+      aria-expanded="false"
+      aria-controls="collapse{{forloop.counter}}"
+    >
+      {{ time }}
+    </button>
+  </h3>
+  <div
+    id="collapse{{forloop.counter}}"
+    class="accordion-collapse collapse"
+    data-bs-parent="#accordionExample"
+  >
+    <div class="container">
+      <div>
+        <h6>{{time_details.subject}}</h6>
+        <div>{{time_details.teacher}} : {{time_details.classroom}}</div>
+        <b>{{time_details.denominator}}</b>
+        <!-- {{time_details}} -->
+      </div>
+    </div>
+  </div>
+</div>
