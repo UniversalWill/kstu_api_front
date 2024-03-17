@@ -1,0 +1,20 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy with SSH
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd kstu_api_front
+            make update
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.USER_NAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          args: -tt
